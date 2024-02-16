@@ -1,5 +1,4 @@
 # Message Alerts
-****
 
 __An Xcella Plugin for displaying error and success messages__
 ### Developed by the Xcella Dev Team.
