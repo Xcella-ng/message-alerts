@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Message ALerts</title>
+	
+	<link type="text/css" href="src/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="x-alerts"></div>
+	<script src="dist/main.js"></script>
+	<script>
+		const msgHolder = document.querySelector('.x-alerts');
+		const msg = new Msg(msgHolder);
+		msg.init({
+			msg: 'Some Nasty Error Occurred',
+			type: 'error',
+			mode: 'dark'
+		})
+	</script>
+</body>
+</html>
+<!--<img class="msg-img" src="./src/images/icons8-checkmark.svg" alt="icon" width="100%" height="100%"/>-->

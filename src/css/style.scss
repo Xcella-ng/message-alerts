@@ -1,0 +1,104 @@
+$msg_primary: rgb(151, 62, 151);
+$shadow-blue-colors: rgba(0, 255,255,.9);
+$shadow-red-colors: rgba(227, 10, 27, 0.9);
+$shadow-x-colors: rgba(151, 62, 151, 0.6);
+
+.msg-primary{
+  background-color: $msg_primary;
+}
+
+body{
+  margin: 0;
+  position: relative;
+  font-family: 'Fira Code', sans-serif;
+  padding: 0;
+}
+
+.msg-box{
+  height: 100vh;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(0.8px);
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.msg-card{
+  box-shadow: 0 0 30px $shadow-x-colors;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  padding: 0 30px;
+
+  .msg-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    span#message{
+      font-size: 20px;
+      animation: show 3s ease-in-out;
+    }
+  }
+
+  .msg-icon{
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.z-1{
+  z-index: 1 !important;
+}
+.z-2{
+  z-index: 2 !important;
+}
+svg{
+  animation: rotate 1.3s ease-in-out;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.reveal{
+  animation: reveal .9s ease-in-out;
+}
+
+@keyframes rotate {
+  from{
+    transform: rotateZ(0deg);
+  }
+  to{
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes reveal {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0%, 100%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+}
