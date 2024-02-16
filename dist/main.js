@@ -1,6 +1,9 @@
 "use strict";
 class Msg {
     constructor(msgContainer) {
+        // private msgIcon;
+        // private msgText;
+        // private card;
         this.box = `
 		<div class="msg-box reveal">
 			<div class="msg-card z-2">
@@ -56,33 +59,33 @@ class Msg {
         else
             config = this.config;
         window.onload = () => {
-            const msgIcon = this.msgContainer.querySelector('.msg-icon');
-            const msgText = this.msgContainer.querySelector('#message');
-            const card = this.msgContainer.querySelector('.msg-card');
             let defaultProperties = ['mode', 'msg', 'type', 'useDefault'];
             if (Object.keys(config).length) {
                 Object.keys(config).forEach(key => {
+                    var _a;
                     if (defaultProperties.indexOf(key) !== -1) {
-                        if (config.msg)
-                            msgText.textContent = config.msg;
-                        else {
+                        if (!config.type) {
                             messageBox.innerHTML = '';
                             console.error('MsgError: No message Passed In');
                         }
+                        else {
+                            this.msgText.textContent = config.msg;
+                            this.timeout((_a = config.duration) !== null && _a !== void 0 ? _a : 5000);
+                        }
                         switch (config.type.toLowerCase()) {
                             case 'success':
-                                msgIcon.innerHTML = this.successIcon;
+                                this.msgIcon.innerHTML = this.successIcon;
                                 break;
                             case 'error':
-                                msgIcon.innerHTML = this.errorIcon;
+                                this.msgIcon.innerHTML = this.errorIcon;
                                 break;
                             default:
                                 console.error('MsgError: No message type set');
                         }
                         switch (config.mode) {
                             case 'dark':
-                                card.style.backgroundColor = this.colors.$black;
-                                card.style.color = '#ffff';
+                                this.msgCard.style.backgroundColor = this.colors.$black;
+                                this.msgCard.style.color = '#ffff';
                                 break;
                             default:
                                 console.warn('Mode unset: Using Default');
@@ -91,5 +94,26 @@ class Msg {
                 });
             }
         };
+    }
+    get msgCard() {
+        return this.msgContainer.querySelector('.msg-card');
+    }
+    get msgIcon() {
+        return this.msgContainer.querySelector('.msg-icon');
+    }
+    get msgText() {
+        return this.msgContainer.querySelector('#message');
+    }
+    get msgBox() {
+        return this.msgContainer.querySelector('.msg-box');
+    }
+    timeout(time) {
+        setTimeout(() => {
+            this.msgBox.classList.remove('reveal');
+            this.msgBox.classList.add('unreveal');
+            setTimeout(() => {
+                this.msgContainer.innerHTML = '';
+            }, 900);
+        }, time);
     }
 }

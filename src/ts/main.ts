@@ -1,4 +1,8 @@
 class Msg {
+	// private msgIcon;
+	// private msgText;
+	// private card;
+	
 	private box: string =
 		`
 		<div class="msg-box reveal">
@@ -63,28 +67,27 @@ class Msg {
 			config = this.config;
 			
 		window.onload = () => {
-			const msgIcon = this.msgContainer.querySelector('.msg-icon');
-			const msgText = this.msgContainer.querySelector('#message');
-			const card = this.msgContainer.querySelector('.msg-card');
+			
 
 			let defaultProperties: string[] = ['mode', 'msg', 'type', 'useDefault'];
 
 			if(Object.keys(config).length){
 				Object.keys(config).forEach(key => {
 					if(defaultProperties.indexOf(key) !== -1){
-						if(config.msg)
-							msgText.textContent = config.msg
-						else{
+						if(!config.type) {
 							messageBox.innerHTML = '';
 							console.error('MsgError: No message Passed In')
+						}else{
+							this.msgText.textContent = config.msg
+							this.timeout(config.duration ?? 5000);
 						}
 
 						switch (config.type.toLowerCase()){
 							case 'success':
-								msgIcon.innerHTML = this.successIcon;
+								this.msgIcon.innerHTML = this.successIcon;
 								break;
 							case 'error':
-								msgIcon.innerHTML = this.errorIcon;
+								this.msgIcon.innerHTML = this.errorIcon;
 								break;
 							default:
 								console.error('MsgError: No message type set');
@@ -92,8 +95,8 @@ class Msg {
 
 						switch (config.mode){
 							case 'dark':
-								card.style.backgroundColor = this.colors.$black
-								card.style.color = '#ffff';
+								this.msgCard.style.backgroundColor = this.colors.$black
+								this.msgCard.style.color = '#ffff';
 								break;
 							default:
 								console.warn('Mode unset: Using Default');
@@ -102,5 +105,33 @@ class Msg {
 				});
 			}
 		}
+	}
+	
+	get msgCard(): any {
+		return this.msgContainer.querySelector('.msg-card');
+	}
+	
+	get msgIcon(): any {
+		return this.msgContainer.querySelector('.msg-icon');
+	}
+	
+	get msgText(): any {
+		return this.msgContainer.querySelector('#message');
+	}
+	
+	get msgBox(): any {
+		return this.msgContainer.querySelector('.msg-box');
+	}
+	
+	
+	private timeout(time: number): any {
+		
+		setTimeout((): void => {
+			this.msgBox.classList.remove('reveal')
+			this.msgBox.classList.add('unreveal')
+			setTimeout(() => {
+				this.msgContainer.innerHTML = '';
+			}, 900)
+		}, time);
 	}
 }
