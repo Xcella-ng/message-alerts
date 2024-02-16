@@ -60,13 +60,13 @@ __After passing in your message holder to the class as an argument, you will nee
 ~~~
 **The following properties and their neccesities are explained below.**
 
-**type**: This is the most important property of all. It specifies if it is an error message or a success message. If this property is not found when trying to use your configurations. An error will be returned.
+**```type```**: This is the most important property of all. It specifies if it is an error message or a success message. If this property is not found when trying to use your configurations. An error will be returned.
 
-**msg**: This property specifies the message being displayed. i.e. the text to be shown.
+**```msg```**: This property specifies the message being displayed. i.e. the text to be shown.
 
-**mode**: This property specifies the mode as shown in the example above! If you use a dark mode theme, message-alerts got your back. The default mode is the light mode by the way. This property is not important unless you want to specify a dark theme otherwise there's no need to pass in this property.
+**```mode```**: This property specifies the mode as shown in the example above! If you use a dark mode theme, message-alerts got your back. The default mode is the light mode by the way. This property is not important unless you want to specify a dark theme otherwise there's no need to pass in this property.
 
-**duration**: This property specifies how long you want the message to show for as explicity shown by the name of the property! Just needed to say that. The default duration is 5000 miliseconds essentially 5 seconds
+**```duration```**: This property specifies how long you want the message to show for as explicity shown by the name of the property! Just needed to say that. The default duration is 5000 miliseconds essentially 5 seconds
 
 __Future Updates__
 ****
