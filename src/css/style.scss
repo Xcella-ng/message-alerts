@@ -14,13 +14,13 @@ body{
 }
 
 .msg-box{
-  height: 100vh;
-  top: 0;
   width: 100%;
   backdrop-filter: blur(0.8px);
   z-index: 1;
-  position: absolute;
+  position: fixed;
   display: flex;
+  top: 0;
+  bottom: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -29,12 +29,16 @@ body{
 .msg-card{
   box-shadow: 0 0 30px $shadow-x-colors;
   width: 500px;
+  @media screen and (max-width: 992px) {
+    width: 400px !important;
+  }
   height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
+  border-radius: 50px; 
+  background-color: #fff;
   padding: 0 30px;
 
   .msg-content{
@@ -65,7 +69,7 @@ body{
 .z-2{
   z-index: 2 !important;
 }
-svg{
+svg.msg-icons{
   animation: rotate 1.3s ease-in-out;
   transform-origin: center;
   transform-box: fill-box;
