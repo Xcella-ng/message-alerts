@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+	<h1>Xcella Message-alerts</h1>
+	<div class="alerts">
+	</div>
+	<script src="./dist/main.js"></script>
+	<script>
+		const alerts = new Msg('.alerts');
+		let config = {
+			msg: 'Welcome back Ben!',
+			type: 'success',
+			mode: 'light',
+			duration: 4000,
+			autoClose: true,
+			btn: {
+				styles: 'btn',
+				content: 'Close Me'
+			}
+		}
+		alerts.popup(config);
+	</script>
+</body>
+</html>
