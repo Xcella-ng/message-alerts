@@ -15,7 +15,7 @@ __An Xcella Plugin for displaying error and success messages__
 
 ### Version
 ***
-_message-alerts version 1.0_
+_message-alerts version 1.1.0_
 
 ### Usage
 ****
