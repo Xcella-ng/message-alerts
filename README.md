@@ -9,6 +9,8 @@ __An Xcella Plugin for displaying error and success messages__
 * Add Message title
 * Add type of message display
 * Add displaying mode.
+* Popups
+* Box autoclosing
 
 
 ### Version
