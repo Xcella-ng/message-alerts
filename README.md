@@ -20,7 +20,7 @@ _message-alerts version 1.0_
 __Include the css file.__
 
 ~~~
-<link rel="stylesheet" href="src/css/style.css"/>
+	<link rel="stylesheet" href="src/css/style.css"/>
 ~~~
 
 __Include the js file.__
@@ -67,9 +67,47 @@ __After passing in your message holder to the class as an argument, you will nee
 
 **```duration```**: This property specifies how long you want the message to show for as explicity shown by the name of the property! Just needed to say that. The default duration is 5000 miliseconds essentially 5 seconds
 
+**```autoClose```**: This property specifies if you want the message box to auto close or if `false` then there will be a close button on the message box. 
+
+**```btn```**: If you have `autoClose: false` then you can set `btn` as a property which is an object. It takes in properties like so
+
+~~~~
+	btn: {
+		styles: ['padding: 2px', 'color: #fff'],
+		content: 'Close Me'
+	}
+~~~~
+
+Like you can see... you can set styles for the button to customize it to your taste. This `style` property takes in either an array of styles or a string which is a css class. So the above will set those styles directly for your button while. 
+
+~~~~
+	btn: {
+		styles: 'btn',
+		content: 'Close Me'
+	}
+~~~~
+
+This will then set a class for the button. This helps to reduce code size and is way easier for code readability but the options are there. Choose whichever  
+
+# Popups
+__Popups are finally here__
+****
+
+To use a popup: Keep the config the same if you want to but change this.
+
+~~~~
+	msg.popup({
+		msg: 'Hey this is a success message!!',
+		type: 'error',
+		duration: 4000
+	});
+~~~~
+
+This is how to setup a popup, the must be properties are `msg` and `type`. These are compulsory properties. More functionalities to come to popups if needed!
+
 __Future Updates__
 ****
-This is not the final working version of ```message-alerts```. This is ```version 1.0```. It's the first stable version. There will be more versions. Do checkout for more. 
+This is not the final working version of ```message-alerts```. This is ```version 1.1.0```. It's the first stable version. There will be more versions. Do checkout for more. 
 
 _Thank you for checking out message-alerts 💜_
 
